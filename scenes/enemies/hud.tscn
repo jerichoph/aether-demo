@@ -24,10 +24,10 @@ script = ExtResource("1_5m7q0")
 
 [node name="SCORE" type="RichTextLabel" parent="."]
 z_index = 4096
-offset_left = 14.0
-offset_top = 90.0
+offset_left = 14.000001
+offset_top = 100.00001
 offset_right = 309.0
-offset_bottom = 147.0
+offset_bottom = 157.0
 scale = Vector2(0.695, 0.695)
 theme_override_fonts/normal_font = ExtResource("2_rhpeq")
 theme_override_font_sizes/normal_font_size = 40
@@ -39,7 +39,7 @@ offset_left = 1.0000005
 offset_top = -2.999999
 offset_right = 79.0
 offset_bottom = 20.0
-scale = Vector2(3.795, 3.795)
+scale = Vector2(4.35, 4.35)
 texture_under = ExtResource("3_w7y4y")
 texture_progress = ExtResource("4_vfbk0")
 

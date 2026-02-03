@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://vbkwmrkhu0ay"]
+[gd_scene load_steps=7 format=3 uid="uid://vbkwmrkhu0ay"]
 
 [ext_resource type="Texture2D" uid="uid://c24nsgb1lbash" path="res://assets/bg/nature_3/origbig.png" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://cbuh7ti5e0okx" path="res://assets/HUD/UI assets Demo (1x).png" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://gx0r37kt6sny" path="res://scenes/main_menu.gd" id="1_wu84c"]
 [ext_resource type="FontFile" uid="uid://bn5vjuq7ksl3u" path="res://assets/fonts/BoldPixels.otf" id="2_wu84c"]
+[ext_resource type="Texture2D" uid="uid://ccm3h8doqmd0n" path="res://assets/fonts/AetherTitle.png" id="5_8ln24"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekxnf"]
 
@@ -17,26 +18,27 @@ grow_vertical = 2
 script = ExtResource("1_wu84c")
 
 [node name="BG" type="Sprite2D" parent="."]
-position = Vector2(625, 313)
-scale = Vector2(0.71440977, 0.7449846)
+position = Vector2(646.5, 359)
+scale = Vector2(0.5846354, 0.6033951)
 texture = ExtResource("1_bqqt6")
 
 [node name="gameVer" type="Label" parent="."]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 591.0
-offset_right = 98.0
-offset_bottom = 642.0
+offset_left = 17.0
+offset_top = 651.0
+offset_right = 105.0
+offset_bottom = 702.0
 theme_override_fonts/font = ExtResource("2_wu84c")
 theme_override_font_sizes/font_size = 50
 text = "v0.1"
 
 [node name="PLAY" type="Button" parent="."]
 layout_mode = 0
-offset_left = 405.0
-offset_top = 156.0
-offset_right = 749.0
-offset_bottom = 247.0
+offset_left = 490.0
+offset_top = 263.0
+offset_right = 834.0
+offset_bottom = 354.0
+scale = Vector2(0.87, 0.87)
 theme_override_fonts/font = ExtResource("2_wu84c")
 theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ekxnf")
@@ -62,10 +64,11 @@ vertical_alignment = 1
 
 [node name="ABOUT" type="Button" parent="."]
 layout_mode = 0
-offset_left = 429.0
-offset_top = 281.0
-offset_right = 727.0
-offset_bottom = 355.0
+offset_left = 514.0
+offset_top = 388.0
+offset_right = 812.0
+offset_bottom = 462.0
+scale = Vector2(0.87, 0.87)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ekxnf")
 
 [node name="sprtAbout" type="Sprite2D" parent="ABOUT"]
@@ -89,10 +92,11 @@ vertical_alignment = 1
 
 [node name="QUIT" type="Button" parent="."]
 layout_mode = 0
-offset_left = 416.0
-offset_top = 390.0
-offset_right = 740.0
-offset_bottom = 485.0
+offset_left = 501.0
+offset_top = 497.0
+offset_right = 825.0
+offset_bottom = 592.0
+scale = Vector2(0.87, 0.87)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ekxnf")
 
 [node name="sprtQuit" type="Sprite2D" parent="QUIT"]
@@ -113,5 +117,10 @@ theme_override_font_sizes/font_size = 70
 text = "QUIT"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AetherTitle" type="Sprite2D" parent="."]
+position = Vector2(644, 143)
+scale = Vector2(0.535, 0.535)
+texture = ExtResource("5_8ln24")
 
 [connection signal="pressed" from="PLAY" to="." method="_on_play_pressed"]
