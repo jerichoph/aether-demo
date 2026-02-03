@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://g88weas0lkl0"]
+
+[ext_resource type="Script" uid="uid://yjk0rwgkwvp6" path="res://scripts/ui.gd" id="1_yev5y"]
+[ext_resource type="Texture2D" uid="uid://c24nsgb1lbash" path="res://assets/bg/nature_3/origbig.png" id="2_gdt2y"]
+[ext_resource type="Texture2D" uid="uid://cbuh7ti5e0okx" path="res://assets/HUD/UI assets Demo (1x).png" id="2_yev5y"]
+[ext_resource type="FontFile" uid="uid://dt5u46lba2xu7" path="res://assets/fonts/BoldPixels.ttf" id="3_gdt2y"]
+
+[node name="GAME_OVER" type="CanvasLayer"]
+script = ExtResource("1_yev5y")
+
+[node name="Game_Over" type="Node2D" parent="." groups=["HUD"]]
+visible = false
+
+[node name="BG" type="Sprite2D" parent="Game_Over"]
+position = Vector2(634, 310)
+scale = Vector2(0.6015625, 0.628858)
+texture = ExtResource("2_gdt2y")
+
+[node name="RestartButton" type="Button" parent="Game_Over"]
+self_modulate = Color(0.8156863, 0.8156863, 0.8156863, 0)
+z_index = 4096
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 328.0
+offset_top = 288.0
+offset_right = 816.0
+offset_bottom = 420.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(122, 68)
+
+[node name="Sprite2D" type="Sprite2D" parent="Game_Over"]
+position = Vector2(576, 352)
+scale = Vector2(10.683264, 9.581417)
+texture = ExtResource("2_yev5y")
+region_enabled = true
+region_rect = Rect2(47.445, 143.17, 49.555, 18)
+
+[node name="Label" type="Label" parent="Game_Over"]
+offset_left = 392.0
+offset_top = 302.00003
+offset_right = 456.7555
+offset_bottom = 318.00003
+scale = Vector2(5.93, 5.93)
+theme_override_fonts/font = ExtResource("3_gdt2y")
+theme_override_font_sizes/font_size = 16
+text = "RESTART"
+
+[node name="EndScore" type="Node2D" parent="Game_Over"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Game_Over/EndScore"]
+position = Vector2(588.00006, 246)
+scale = Vector2(5.098, 1.171)
+
+[node name="Points" type="Label" parent="Game_Over/EndScore"]
+offset_left = 464.0
+offset_top = 184.0
+offset_right = 567.4169
+offset_bottom = 231.0
+scale = Vector2(2.195, 2.195)
+theme_override_fonts/font = ExtResource("3_gdt2y")
+theme_override_font_sizes/font_size = 46
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Game_Over/RestartButton" to="." method="_on_restart_button_pressed"]

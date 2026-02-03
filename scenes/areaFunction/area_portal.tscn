@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=3 uid="uid://c10klqruynrl6"]
+
+[ext_resource type="Texture2D" uid="uid://bulvu2vx3f25b" path="res://assets/tileset/others/Dimensional_Portal.png" id="1_1rg0o"]
+[ext_resource type="Script" uid="uid://dk6ecksk5mrwr" path="res://scripts/area_portal.gd" id="1_akdob"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akdob"]
+atlas = ExtResource("1_1rg0o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi87m"]
+atlas = ExtResource("1_1rg0o")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfc32"]
+atlas = ExtResource("1_1rg0o")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm7kv"]
+atlas = ExtResource("1_1rg0o")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jeug"]
+atlas = ExtResource("1_1rg0o")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ousml"]
+atlas = ExtResource("1_1rg0o")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oxvke"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akdob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gi87m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfc32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm7kv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jeug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ousml")
+}],
+"loop": true,
+"name": &"spiral",
+"speed": 8.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_akdob"]
+offsets = PackedFloat32Array(0, 0.3873874, 0.7747748)
+colors = PackedColorArray(1, 1, 1, 1, 0.4234234, 0.4234234, 0.4234234, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gi87m"]
+gradient = SubResource("Gradient_akdob")
+fill = 1
+fill_from = Vector2(0.5157233, 0.5062893)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_81vc5"]
+radius = 20.0
+height = 42.0
+
+[node name="AreaPortal" type="Area2D"]
+z_index = -10
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_akdob")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -1.5258789e-05)
+scale = Vector2(4.0078125, 3.156249)
+sprite_frames = SubResource("SpriteFrames_oxvke")
+animation = &"spiral"
+autoplay = "spiral"
+frame_progress = 0.48160678
+metadata/_edit_group_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(4.9999886, 3.9999886)
+scale = Vector2(2.765625, 2.765625)
+color = Color(0, 0.80784315, 0, 1)
+energy = 1.2
+texture = SubResource("GradientTexture2D_gi87m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 1)
+shape = SubResource("CapsuleShape2D_81vc5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

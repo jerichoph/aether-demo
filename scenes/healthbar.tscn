@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8xypaf5xmlh0"]
+
+[ext_resource type="Texture2D" uid="uid://22jo88pooakv" path="res://assets/HUD/HealthBarUnder.png" id="1_ulkio"]
+[ext_resource type="Texture2D" uid="uid://b4a5lis60u35f" path="res://assets/HUD/HealthBarProgress.png" id="2_y8nn8"]
+[ext_resource type="Script" uid="uid://bj6dthutqo2ir" path="res://scenes/enemies/healthbar.gd" id="3_25yk6"]
+[ext_resource type="Script" uid="uid://7lvhhxeww03y" path="res://scripts/hud.gd" id="3_y8nn8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05yto"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yrms6"]
+bg_color = Color(0.6392157, 0.21960784, 0.21960784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugary"]
+bg_color = Color(0.06173995, 0.061739944, 0.061739925, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmt8f"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Sprite_HP" type="TextureProgressBar" groups=["HUD"]]
+offset_left = 1.0000005
+offset_top = -2.999999
+offset_right = 79.0
+offset_bottom = 20.0
+scale = Vector2(4.5, 4.5)
+texture_under = ExtResource("1_ulkio")
+texture_progress = ExtResource("2_y8nn8")
+script = ExtResource("3_y8nn8")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 20.0
+offset_top = 9.999999
+offset_right = 75.77778
+offset_bottom = 13.999999
+theme_override_styles/background = SubResource("StyleBoxEmpty_05yto")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yrms6")
+value = 60.0
+show_percentage = false
+script = ExtResource("3_25yk6")
+
+[node name="DamageBar" type="ProgressBar" parent="HealthBar"]
+z_index = -1
+layout_mode = 0
+offset_right = 56.0
+offset_bottom = 4.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ugary")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mmt8f")
+value = 80.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="HealthBar"]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="HealthBar/Timer" to="HealthBar" method="_on_timer_timeout"]

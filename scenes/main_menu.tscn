@@ -1,0 +1,117 @@
+[gd_scene load_steps=6 format=3 uid="uid://vbkwmrkhu0ay"]
+
+[ext_resource type="Texture2D" uid="uid://c24nsgb1lbash" path="res://assets/bg/nature_3/origbig.png" id="1_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://cbuh7ti5e0okx" path="res://assets/HUD/UI assets Demo (1x).png" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://gx0r37kt6sny" path="res://scenes/main_menu.gd" id="1_wu84c"]
+[ext_resource type="FontFile" uid="uid://bn5vjuq7ksl3u" path="res://assets/fonts/BoldPixels.otf" id="2_wu84c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekxnf"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wu84c")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(625, 313)
+scale = Vector2(0.71440977, 0.7449846)
+texture = ExtResource("1_bqqt6")
+
+[node name="gameVer" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 591.0
+offset_right = 98.0
+offset_bottom = 642.0
+theme_override_fonts/font = ExtResource("2_wu84c")
+theme_override_font_sizes/font_size = 50
+text = "v0.1"
+
+[node name="PLAY" type="Button" parent="."]
+layout_mode = 0
+offset_left = 405.0
+offset_top = 156.0
+offset_right = 749.0
+offset_bottom = 247.0
+theme_override_fonts/font = ExtResource("2_wu84c")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ekxnf")
+
+[node name="sprtPlay" type="Sprite2D" parent="PLAY"]
+position = Vector2(171, 48)
+scale = Vector2(7.869565, 7.766667)
+texture = ExtResource("1_l6cm7")
+region_enabled = true
+region_rect = Rect2(1, 145, 46, 15)
+
+[node name="lbPlay" type="Label" parent="PLAY"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 336.0
+offset_bottom = 84.0
+theme_override_fonts/font = ExtResource("2_wu84c")
+theme_override_font_sizes/font_size = 75
+text = "PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ABOUT" type="Button" parent="."]
+layout_mode = 0
+offset_left = 429.0
+offset_top = 281.0
+offset_right = 727.0
+offset_bottom = 355.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ekxnf")
+
+[node name="sprtAbout" type="Sprite2D" parent="ABOUT"]
+position = Vector2(147, 40)
+scale = Vector2(6.913, 6.822)
+texture = ExtResource("1_l6cm7")
+region_enabled = true
+region_rect = Rect2(1, 145, 46, 15)
+
+[node name="lbAbout" type="Label" parent="ABOUT"]
+layout_mode = 0
+offset_left = -22.0
+offset_top = -7.0
+offset_right = 320.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("2_wu84c")
+theme_override_font_sizes/font_size = 55
+text = "ABOUT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QUIT" type="Button" parent="."]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 390.0
+offset_right = 740.0
+offset_bottom = 485.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ekxnf")
+
+[node name="sprtQuit" type="Sprite2D" parent="QUIT"]
+position = Vector2(160, 47.00003)
+scale = Vector2(7.379, 7.282)
+texture = ExtResource("1_l6cm7")
+region_enabled = true
+region_rect = Rect2(1, 145, 46, 15)
+
+[node name="lbQuit" type="Label" parent="QUIT"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 315.0
+offset_bottom = 79.0
+theme_override_fonts/font = ExtResource("2_wu84c")
+theme_override_font_sizes/font_size = 70
+text = "QUIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="PLAY" to="." method="_on_play_pressed"]

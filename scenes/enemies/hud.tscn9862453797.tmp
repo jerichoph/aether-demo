@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://b0067ybiadqtk"]
+
+[ext_resource type="Script" uid="uid://7lvhhxeww03y" path="res://scripts/hud.gd" id="1_5m7q0"]
+[ext_resource type="FontFile" uid="uid://bn5vjuq7ksl3u" path="res://assets/fonts/BoldPixels.otf" id="2_rhpeq"]
+[ext_resource type="Texture2D" uid="uid://22jo88pooakv" path="res://assets/HUD/HealthBarUnder.png" id="3_w7y4y"]
+[ext_resource type="Texture2D" uid="uid://b4a5lis60u35f" path="res://assets/HUD/HealthBarProgress.png" id="4_vfbk0"]
+[ext_resource type="FontFile" uid="uid://dt5u46lba2xu7" path="res://assets/fonts/BoldPixels.ttf" id="5_5m7q0"]
+[ext_resource type="Script" uid="uid://bj6dthutqo2ir" path="res://scenes/enemies/healthbar.gd" id="5_vfbk0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5m7q0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4c0ov"]
+bg_color = Color(0.6392157, 0.21960784, 0.21960784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfbk0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37eo5"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="HUD" type="CanvasLayer" groups=["HUD"]]
+script = ExtResource("1_5m7q0")
+
+[node name="SCORE" type="RichTextLabel" parent="."]
+z_index = 4096
+offset_left = 12.0
+offset_top = 112.0
+offset_right = 307.0
+offset_bottom = 169.0
+theme_override_fonts/normal_font = ExtResource("2_rhpeq")
+theme_override_font_sizes/normal_font_size = 40
+text = "SCORE: "
+tab_size = 7
+
+[node name="Sprite_HP" type="TextureProgressBar" parent="."]
+offset_left = 1.0000005
+offset_top = -2.999999
+offset_right = 79.0
+offset_bottom = 20.0
+scale = Vector2(4.5, 4.5)
+texture_under = ExtResource("3_w7y4y")
+texture_progress = ExtResource("4_vfbk0")
+
+[node name="HealthLabel" type="Label" parent="Sprite_HP"]
+z_index = 1000
+layout_mode = 0
+offset_left = 35.333336
+offset_top = 9.11111
+offset_right = 106.34898
+offset_bottom = 25.11111
+scale = Vector2(0.355, 0.355)
+theme_override_fonts/font = ExtResource("5_5m7q0")
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="Sprite_HP"]
+z_index = 1
+layout_mode = 0
+offset_left = 20.0
+offset_top = 9.999999
+offset_right = 76.0
+offset_bottom = 13.999999
+theme_override_styles/background = SubResource("StyleBoxEmpty_5m7q0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4c0ov")
+show_percentage = false
+script = ExtResource("5_vfbk0")
+
+[node name="DamageBar" type="ProgressBar" parent="Sprite_HP/HealthBar"]
+z_index = -1
+layout_mode = 0
+offset_right = 56.0
+offset_bottom = 4.000001
+theme_override_styles/background = SubResource("StyleBoxFlat_vfbk0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_37eo5")
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="Sprite_HP/HealthBar"]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="Sprite_HP/HealthBar/Timer" to="Sprite_HP/HealthBar" method="_on_timer_timeout"]
