@@ -481,8 +481,6 @@ radius = 18.110771
 radius = 27.018513
 
 [node name="GolluxBoss" type="CharacterBody2D"]
-collision_layer = 4
-collision_mask = 4
 script = ExtResource("1_epkiu")
 key_fragment = ExtResource("2_injt3")
 

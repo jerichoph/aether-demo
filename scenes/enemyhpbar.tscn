@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6uygo76k8yh2"]
+[gd_scene load_steps=7 format=3 uid="uid://c6uygo76k8yh2"]
 
 [ext_resource type="Script" uid="uid://bj6dthutqo2ir" path="res://scenes/enemies/healthbar.gd" id="1_a6nmn"]
+[ext_resource type="FontFile" uid="uid://dt5u46lba2xu7" path="res://assets/fonts/BoldPixels.ttf" id="2_w7xil"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w7xil"]
 
@@ -23,8 +24,8 @@ bg_color = Color(1, 1, 1, 1)
 z_index = 1
 offset_left = 20.0
 offset_top = 9.999999
-offset_right = 52.0
-offset_bottom = 13.999999
+offset_right = 65.0
+offset_bottom = 16.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_w7xil")
 theme_override_styles/fill = SubResource("StyleBoxFlat_p4p6s")
 value = 40.0
@@ -34,12 +35,28 @@ script = ExtResource("1_a6nmn")
 [node name="DamageBar" type="ProgressBar" parent="."]
 z_index = -1
 layout_mode = 0
-offset_right = 32.0
-offset_bottom = 4.000001
+offset_right = 45.0
+offset_bottom = 6.000001
 theme_override_styles/background = SubResource("StyleBoxFlat_tdgf6")
 theme_override_styles/fill = SubResource("StyleBoxFlat_1xosv")
 value = 60.0
 show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="."]
+z_index = 1000
+layout_mode = 0
+offset_left = 2.999999
+offset_top = -0.99999917
+offset_right = 84.86049
+offset_bottom = 15.000001
+scale = Vector2(0.485, 0.485)
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.14901961, 0.14901961, 0.14901961, 0.6862745)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_w7xil")
+text = "50/50"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.4

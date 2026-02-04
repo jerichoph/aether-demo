@@ -1,13 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bicfth34uamhs"]
+[gd_scene load_steps=7 format=3 uid="uid://bicfth34uamhs"]
 
 [ext_resource type="Script" uid="uid://bj6dthutqo2ir" path="res://scenes/enemies/healthbar.gd" id="1_k81mf"]
+[ext_resource type="FontFile" uid="uid://dt5u46lba2xu7" path="res://assets/fonts/BoldPixels.ttf" id="2_at2pw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w7xil"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4p6s"]
 bg_color = Color(0.6392157, 0.21960784, 0.21960784, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tdgf6"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k81mf"]
 bg_color = Color(0.1234731, 0.123473026, 0.12347304, 1)
 expand_margin_left = 1.0
 expand_margin_top = 1.0
@@ -16,7 +17,7 @@ expand_margin_bottom = 1.0
 shadow_color = Color(0, 0, 0, 0.27450982)
 shadow_offset = Vector2(0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xosv"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_at2pw"]
 bg_color = Color(1, 1, 1, 1)
 
 [node name="BossBar" type="ProgressBar"]
@@ -27,9 +28,9 @@ anchor_top = 0.015000001
 anchor_right = 0.017
 anchor_bottom = 0.015000001
 offset_left = 0.41599846
-offset_top = 0.27999878
-offset_right = 250.416
-offset_bottom = 9.28
+offset_top = 30.279999
+offset_right = 324.24
+offset_bottom = 46.2
 theme_override_styles/background = SubResource("StyleBoxEmpty_w7xil")
 theme_override_styles/fill = SubResource("StyleBoxFlat_p4p6s")
 value = 40.0
@@ -39,12 +40,44 @@ script = ExtResource("1_k81mf")
 [node name="DamageBar" type="ProgressBar" parent="."]
 z_index = -1
 layout_mode = 0
-offset_right = 230.0
-offset_bottom = 9.000001
-theme_override_styles/background = SubResource("StyleBoxFlat_tdgf6")
-theme_override_styles/fill = SubResource("StyleBoxFlat_1xosv")
+offset_right = 324.824
+offset_bottom = 15.920001
+theme_override_styles/background = SubResource("StyleBoxFlat_k81mf")
+theme_override_styles/fill = SubResource("StyleBoxFlat_at2pw")
 value = 60.0
 show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="."]
+z_index = 1000
+layout_mode = 0
+offset_left = 86.824005
+offset_top = 14.920002
+offset_right = 168.6845
+offset_bottom = 30.920002
+scale = Vector2(1.775, 1.775)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.14901961, 0.14901961, 0.14901961, 0.6862745)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_at2pw")
+text = "500/500"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BossLabel" type="Label" parent="."]
+z_index = 1000
+layout_mode = 0
+offset_left = -0.1760006
+offset_top = -27.079998
+offset_right = 84.824
+offset_bottom = -11.079998
+scale = Vector2(1.775, 1.775)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.14901961, 0.14901961, 0.14901961, 0.6862745)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_at2pw")
+text = "Boss: Gollux"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.4

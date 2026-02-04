@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8xypaf5xmlh0"]
+[gd_scene load_steps=8 format=3 uid="uid://b8xypaf5xmlh0"]
 
 [ext_resource type="Texture2D" uid="uid://22jo88pooakv" path="res://assets/HUD/HealthBarUnder.png" id="1_ulkio"]
 [ext_resource type="Texture2D" uid="uid://b4a5lis60u35f" path="res://assets/HUD/HealthBarProgress.png" id="2_y8nn8"]
-[ext_resource type="Script" uid="uid://bj6dthutqo2ir" path="res://scenes/enemies/healthbar.gd" id="3_25yk6"]
 [ext_resource type="Script" uid="uid://7lvhhxeww03y" path="res://scripts/hud.gd" id="3_y8nn8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05yto"]
@@ -37,7 +36,6 @@ theme_override_styles/background = SubResource("StyleBoxEmpty_05yto")
 theme_override_styles/fill = SubResource("StyleBoxFlat_yrms6")
 value = 60.0
 show_percentage = false
-script = ExtResource("3_25yk6")
 
 [node name="DamageBar" type="ProgressBar" parent="HealthBar"]
 z_index = -1

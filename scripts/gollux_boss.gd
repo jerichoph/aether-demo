@@ -13,7 +13,7 @@ const SPEED = 40.0
 var health = 500
 var health_max = 500
 var dead = false
-var damage_to_deal = 30
+var damage_to_deal = 20
 var taking_damage = false
 var is_attacking = false
 var is_active = false 
@@ -45,13 +45,11 @@ func start_boss_fight():
 	if is_active or dead: return
 	is_active = true
 	
-	# Initialize the UI Bar in the CanvasLayer
-	boss_hp_bar.max_value = health_max
-	boss_hp_bar.value = health
-	boss_hp_bar.show()
-	
-	timer.start()
-	print("Boss Battle Started!")
+	if boss_hp_bar:
+		boss_hp_bar.init_health(health) 
+		boss_hp_bar.show()
+		timer.start()
+		print("Boss Battle Started!")
 
 func move_logic(_delta):
 	if taking_damage or is_attacking:
@@ -87,7 +85,10 @@ func take_damage(damage):
 	if dead: return
 	health -= damage
 	DamageNumbers.display_number(damage, damage_number.global_position)
-	boss_hp_bar.value = health
+	
+	if boss_hp_bar:
+		boss_hp_bar.health = health 
+	
 	if !is_attacking:
 		taking_damage = true
 		anim.play("hurt")

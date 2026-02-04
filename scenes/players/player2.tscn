@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dwifjr4wjveug" path="res://assets/characters/hero/individual_sheets/male_hero-jump.png" id="8_mx3ep"]
 [ext_resource type="Texture2D" uid="uid://dt5f4yskcwnv5" path="res://assets/characters/hero/individual_sheets/male_hero-run.png" id="9_n1mft"]
 [ext_resource type="Texture2D" uid="uid://b55dcgriw6x0h" path="res://assets/characters/hero/individual_sheets/male_hero-combo_1.png" id="10_mx3ep"]
-[ext_resource type="AudioStream" uid="uid://savylxbbkhv4" path="res://assets/musics/swordslash.wav" id="10_tbxcb"]
+[ext_resource type="AudioStream" uid="uid://savylxbbkhv4" path="res://audio/music/swordslash.wav" id="10_tbxcb"]
 [ext_resource type="Texture2D" uid="uid://dvbbuuyqj6p3m" path="res://assets/characters/hero/individual_sheets/male_hero-combo_1_end.png" id="11_n1mft"]
 [ext_resource type="PackedScene" uid="uid://biw18tcw4mprc" path="res://scenes/scene_transition.tscn" id="11_s5jir"]
 

@@ -6,6 +6,7 @@ var is_reloading = false
 @onready var boss_trigger: Area2D = $BossTrigger
 
 func _ready() -> void:
+	MusicManager.play_track(MusicManager.level_1_music)
 	scene_transition.get_parent().get_node("ColorRect").color.a = 255
 	scene_transition.play("fade_out")
 

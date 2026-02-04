@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
-const SPEED = 225.0
-const JUMP_VELOCITY = -550.0
+const SPEED = 325.0
+const JUMP_VELOCITY = -570.0
 
 @onready var scene_transition = $SceneTransition/AnimationPlayer
 @onready var sword_slash: AudioStreamPlayer2D = $AttackArea/SwordSlash
@@ -167,7 +167,9 @@ func handle_attack_animation(attack_type):
 		var animation = str(attack_type,"_attack")
 		animated_sprite.play(animation)
 		toggle_damage_collisions(attack_type)
-		sword_slash.play()
+		var sfx = sword_slash
+		sfx.pitch_scale = randf_range(0.7, 1.7) # This is the "magic" line
+		sfx.play()
 		await sword_slash.finished
 		
 
@@ -188,9 +190,7 @@ func toggle_damage_collisions(attack_type):
 func set_damage(attack_type):
 	var current_damage_to_deal: int
 	if attack_type == "single":
-		current_damage_to_deal = 100
-	elif attack_type == "double":
-		current_damage_to_deal = 30
+		current_damage_to_deal = 20
 	elif attack_type == "air":
 		current_damage_to_deal = 40
 	Global.playerDamageAmount = current_damage_to_deal
