@@ -25,10 +25,10 @@ script = ExtResource("1_5m7q0")
 [node name="SCORE" type="RichTextLabel" parent="."]
 z_index = 4096
 offset_left = 14.0
-offset_top = 90.0
+offset_top = 112.00001
 offset_right = 309.0
-offset_bottom = 147.0
-scale = Vector2(0.695, 0.695)
+offset_bottom = 169.0
+scale = Vector2(0.945, 0.945)
 theme_override_fonts/normal_font = ExtResource("2_rhpeq")
 theme_override_font_sizes/normal_font_size = 40
 text = "SCORE: "
@@ -39,25 +39,9 @@ offset_left = 1.0000005
 offset_top = -2.999999
 offset_right = 79.0
 offset_bottom = 20.0
-scale = Vector2(3.795, 3.795)
+scale = Vector2(5.05, 5.05)
 texture_under = ExtResource("3_w7y4y")
 texture_progress = ExtResource("4_vfbk0")
-
-[node name="HealthLabel" type="Label" parent="Sprite_HP"]
-z_index = 1000
-layout_mode = 0
-offset_left = 35.333336
-offset_top = 9.11111
-offset_right = 106.34898
-offset_bottom = 25.11111
-scale = Vector2(0.355, 0.355)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.14901961, 0.14901961, 0.14901961, 0.6862745)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_5m7q0")
-text = "100/100"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="HealthBar" type="ProgressBar" parent="Sprite_HP"]
 z_index = 1
@@ -70,6 +54,22 @@ theme_override_styles/background = SubResource("StyleBoxEmpty_5m7q0")
 theme_override_styles/fill = SubResource("StyleBoxFlat_4c0ov")
 show_percentage = false
 script = ExtResource("5_vfbk0")
+
+[node name="HealthLabel" type="Label" parent="Sprite_HP/HealthBar"]
+z_index = 1000
+layout_mode = 0
+offset_left = 15.333338
+offset_top = -0.8888893
+offset_right = 86.34898
+offset_bottom = 15.111111
+scale = Vector2(0.355, 0.355)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.14901961, 0.14901961, 0.14901961, 0.6862745)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_5m7q0")
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="DamageBar" type="ProgressBar" parent="Sprite_HP/HealthBar"]
 z_index = -1
@@ -85,11 +85,11 @@ wait_time = 0.4
 one_shot = true
 
 [node name="KeyCounter" type="Label" parent="."]
-offset_left = 936.00006
+offset_left = 1004.00006
 offset_top = 31.0
-offset_right = 1042.0
+offset_right = 1110.0
 offset_bottom = 54.0
-scale = Vector2(1.775, 1.775)
+scale = Vector2(2.2, 2.2)
 theme_override_colors/font_color = Color(0, 0.89411765, 0.21176471, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.78431374)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -98,7 +98,7 @@ text = "SHARDS: 0 / 3"
 uppercase = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(911, 46)
+position = Vector2(973, 49)
 scale = Vector2(3.03, 3.03)
 texture = ExtResource("7_37eo5")
 

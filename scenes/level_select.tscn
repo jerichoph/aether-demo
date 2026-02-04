@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh6sd5go4q3j5"]
+[gd_scene load_steps=9 format=3 uid="uid://bh6sd5go4q3j5"]
 
 [ext_resource type="Script" uid="uid://gx0r37kt6sny" path="res://scenes/main_menu.gd" id="1_rif6e"]
-[ext_resource type="Texture2D" uid="uid://c24nsgb1lbash" path="res://assets/bg/nature_3/origbig.png" id="2_chg43"]
+[ext_resource type="Texture2D" uid="uid://d0007mw7vmo07" path="res://assets/bg/nature_2/1.png" id="2_ckc44"]
+[ext_resource type="Script" uid="uid://cua5ertgua8n3" path="res://scripts/CloudLayer.gd" id="3_ckc44"]
 [ext_resource type="FontFile" uid="uid://bn5vjuq7ksl3u" path="res://assets/fonts/BoldPixels.otf" id="3_r77uv"]
-[ext_resource type="Texture2D" uid="uid://bq6wq6xetu25a" path="res://assets/bg/nature_6/origbig.png" id="4_rif6e"]
+[ext_resource type="Texture2D" uid="uid://b0r2jn67umucp" path="res://assets/bg/nature_5/2.png" id="4_o2xx4"]
+[ext_resource type="Texture2D" uid="uid://01ycqay1bnaa" path="res://assets/HUD/buttons/level1.png" id="4_rif6e"]
+[ext_resource type="Texture2D" uid="uid://66dccex6b6gr" path="res://assets/bg/nature_5/3.png" id="5_htctk"]
+[ext_resource type="Texture2D" uid="uid://gykrls287i48" path="res://assets/bg/nature_5/4.png" id="6_s6tf7"]
 
 [node name="level_select" type="Control"]
 layout_mode = 3
@@ -14,44 +18,64 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rif6e")
 
-[node name="BG" type="Sprite2D" parent="."]
-position = Vector2(577.5, 321.5)
-scale = Vector2(0.50043404, 0.5007715)
-texture = ExtResource("2_chg43")
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(638, 361.00003)
+scale = Vector2(2.5, 2.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(0, -0.3999939)
+texture = ExtResource("2_ckc44")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 388)
+motion_scale = Vector2(0, 1)
+motion_mirroring = Vector2(1440, 0)
+script = ExtResource("3_ckc44")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(641.99994, -24.000015)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_o2xx4")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(638, 361.00003)
+scale = Vector2(2.5, 2.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(0, -0.3999939)
+texture = ExtResource("5_htctk")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(638, 361.00003)
+scale = Vector2(2.5, 2.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(0, -0.3999939)
+texture = ExtResource("6_s6tf7")
 
 [node name="gameVer" type="Label" parent="."]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 591.0
-offset_right = 98.0
-offset_bottom = 642.0
+offset_left = 20.0
+offset_top = 646.0
+offset_right = 108.0
+offset_bottom = 697.0
 theme_override_fonts/font = ExtResource("3_r77uv")
 theme_override_font_sizes/font_size = 50
 text = "v0.1"
 
-[node name="lvl1" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 168.0
-offset_top = 255.0
-offset_right = 356.0
-offset_bottom = 377.0
-
-[node name="Sprite2D" type="Sprite2D" parent="lvl1"]
-position = Vector2(93.5, 61)
-scale = Vector2(0.0811632, 0.09413582)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(317, 326)
+scale = Vector2(0.356, 0.413)
 texture = ExtResource("4_rif6e")
 
-[node name="lbPlay" type="Label" parent="lvl1"]
+[node name="lvl1" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = -10.0
-offset_top = 21.0
-offset_right = 202.0
-offset_bottom = 97.0
-theme_override_fonts/font = ExtResource("3_r77uv")
-theme_override_font_sizes/font_size = 75
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = 197.0
+offset_top = 152.0
+offset_right = 422.0
+offset_bottom = 499.0
 
 [connection signal="pressed" from="lvl1" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="lvl1" to="." method="_on_lvl_1_pressed"]
