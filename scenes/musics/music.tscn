@@ -1,8 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://b364clyuxbq3p"]
 
-[ext_resource type="AudioStream" uid="uid://cvl5wnbronfly" path="res://assets/musics/Medieval Music  Cobblestone Village.mp3" id="1_v3w27"]
+[ext_resource type="Script" uid="uid://dbymop78rgvpf" path="res://scripts/MusicManager.gd" id="1_c31p0"]
 
 [node name="Music" type="AudioStreamPlayer"]
-stream = ExtResource("1_v3w27")
-autoplay = true
 bus = &"Music"
+script = ExtResource("1_c31p0")

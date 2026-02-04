@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bow2u38x23vt7" path="res://assets/characters/protagonist/_Fall.png" id="4_smehm"]
 [ext_resource type="Texture2D" uid="uid://v8m2yc4aucfy" path="res://assets/characters/protagonist/_AttackCombo2hit.png" id="5_ur7pv"]
 [ext_resource type="Texture2D" uid="uid://c5b410xuvilla" path="res://assets/characters/protagonist/_Death.png" id="5_y4r1p"]
-[ext_resource type="AudioStream" uid="uid://savylxbbkhv4" path="res://assets/musics/swordslash.wav" id="10_es4m5"]
+[ext_resource type="AudioStream" uid="uid://savylxbbkhv4" path="res://audio/music/swordslash.wav" id="10_es4m5"]
 [ext_resource type="PackedScene" uid="uid://biw18tcw4mprc" path="res://scenes/scene_transition.tscn" id="11_fsrjl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hax0n"]

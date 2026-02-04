@@ -63,8 +63,8 @@ fill = 1
 fill_from = Vector2(0.5157233, 0.5062893)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_81vc5"]
-radius = 20.0
-height = 42.0
+radius = 30.0
+height = 82.0
 
 [node name="BackPortal" type="Area2D"]
 z_index = -10

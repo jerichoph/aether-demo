@@ -3,9 +3,9 @@ extends Node2D
 var is_reloading = false
 @onready var scene_transition = $SceneTransition/AnimationPlayer
 @onready var ui: ui = $UI
-@onready var boss_trigger: Area2D = $BossTrigger
 
 func _ready() -> void:
+	MusicManager.play_track(MusicManager.level_1_music)
 	scene_transition.get_parent().get_node("ColorRect").color.a = 255
 	scene_transition.play("fade_out")
 
@@ -30,12 +30,3 @@ func update_score():
 		Global.high_score = Global.current_score
 	Global.current_score = 0
 	
-func _on_boss_trigger_body_entered(body):
-	if body.is_in_group("Player"):
-		$CanvasLayer/BossBar.show()
-		# Initialize the bar using the correct variable names from your boss script
-		$CanvasLayer/BossBar.max_value = $GolluxBoss.health_max
-		$CanvasLayer/BossBar.value = $GolluxBoss.health
-		# Now tell the boss to start moving and attacking
-		$GolluxBoss.start_boss_fight()
-		boss_trigger.queue_free()

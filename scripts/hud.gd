@@ -2,6 +2,7 @@ extends CanvasLayer
 class_name HUD
 @onready var health_bar: ProgressBar = $Sprite_HP/HealthBar
 @onready var damage_bar: ProgressBar = $Sprite_HP/HealthBar/DamageBar
+@onready var health_label: Label = $Sprite_HP/HealthBar/HealthLabel
 @onready var key_label = $KeyCounter
 var game_points = Global.current_score
 var default_text = "SCORE: "
@@ -24,7 +25,7 @@ func set_health(value: int):
 	var maximum = str(int(health_bar.max_value))
 	while current.length() < 3:
 		current = " " + current
-	$Sprite_HP/HealthLabel.text = str(current, "/", maximum)
+	health_label.text = str(current, "/", maximum)
 	
 func _process(_delta):
 	var text = str(default_text, str(Global.current_score))

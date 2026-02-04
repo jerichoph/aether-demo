@@ -1,11 +1,15 @@
 extends Node
 
+var custom_font = preload("res://assets/fonts/BoldPixels.ttf")
+
 func display_number(value: int, position: Vector2):
 	var number = Label.new()
 	number.global_position = position
 	number.text = str(value)
-	number.z_index = 5
+	number.z_index = 1000
 	number.label_settings = LabelSettings.new()
+	
+	number.label_settings.font = custom_font
 	
 	var color = "#FFF"
 	if value == 0:
@@ -14,6 +18,7 @@ func display_number(value: int, position: Vector2):
 	number.label_settings.font_size = 18
 	number.label_settings.outline_color = "#000"
 	number.label_settings.outline_size = 1
+	
 	
 	call_deferred("add_child", number)
 	

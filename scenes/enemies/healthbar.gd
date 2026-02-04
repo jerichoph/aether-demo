@@ -2,6 +2,7 @@ extends ProgressBar
 
 @onready var timer: Timer = $Timer
 @onready var damage_bar = $DamageBar
+@onready var health_label: Label = $HealthLabel
 
 var health = 0 : set = _set_health
 
@@ -9,6 +10,9 @@ func _set_health(new_health):
 	var prev_health = health
 	health = clamp(new_health, 0, max_value)
 	value = health
+	
+	if health_label:
+		health_label.text = str(int(health)) + " / " + str(int(max_value))
 	
 	damage_bar.max_value = max_value
 	
@@ -26,13 +30,14 @@ func init_health(_health):
 	value = health
 	damage_bar.max_value = health
 	damage_bar.value = health
-	print("damage_bar:", damage_bar, "health:", health, "value:", damage_bar.value)
+	if health_label:
+		health_label.text = str(int(health)) + "/" + str(int(max_value))
 	
 func change_health(new_health: int):
 	_set_health(new_health)
+	
 
 func _on_timer_timeout() -> void:
 	var tween = create_tween()
-	print("Timer fired! prev_health:", damage_bar.value, "target:", health)
 	tween.tween_property(damage_bar, "value", health, 0.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	

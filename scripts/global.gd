@@ -14,6 +14,10 @@ var golluxSmashZone: Area2D
 var golluxDamageAmount: int
 
 
+var reaperDamageAmount : int
+var minionDamageAmount: int
+
+
 var high_score = 0
 var current_score: int
 var previous_score: int

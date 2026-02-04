@@ -1,9 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxmngv8uv1rc6"]
+[gd_scene load_steps=7 format=3 uid="uid://dxmngv8uv1rc6"]
 
 [ext_resource type="Script" uid="uid://ch2ib48qrqwu4" path="res://scripts/key_fragment.gd" id="1_1cj5s"]
 [ext_resource type="Texture2D" uid="uid://dkk25jx0yqd21" path="res://assets/items/Pico8AssetPack/Items/Coins+Gems/GemGreen.png" id="2_j42rm"]
+[ext_resource type="AudioStream" uid="uid://c21puyj2a1x41" path="res://audio/music/gemPickup.wav" id="3_j42rm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ytmig"]
+
+[sub_resource type="Gradient" id="Gradient_j42rm"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ytmig"]
+gradient = SubResource("Gradient_j42rm")
+fill = 1
+fill_from = Vector2(0.4779874, 0.46226415)
+fill_to = Vector2(0.8930818, 0.17924528)
 
 [node name="KeyFragment" type="Area2D" groups=["Player"]]
 collision_layer = 4
@@ -11,6 +21,7 @@ collision_mask = 4
 script = ExtResource("1_1cj5s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -200
 position = Vector2(0, -12)
 scale = Vector2(2.02, 2.02)
 texture = ExtResource("2_j42rm")
@@ -18,5 +29,16 @@ texture = ExtResource("2_j42rm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -12)
 shape = SubResource("CircleShape2D_ytmig")
+
+[node name="GemPickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_j42rm")
+bus = &"Sound Effects"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-4.7683716e-07, -12)
+scale = Vector2(4.3437505, 2.65625)
+color = Color(0, 1, 0, 1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_ytmig")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
