@@ -2,16 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<<< HEAD:assets/HUD/buttons/buttonHover.png.import
 uid="uid://b4lbf7el4mkfg"
 path="res://.godot/imported/buttonHover.png-69ab0118e417818a5a97d50fb7088fad.ctex"
+========
+uid="uid://cqlnlon1b7q88"
+path="res://.godot/imported/AetherDemo.apple-touch-icon.png-2572a78c602fcd9b8ce022aa673891f3.ctex"
+>>>>>>>> 170b1d33962c466fd4ce27cf65394520a1db95a0:AetherDemo.apple-touch-icon.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<<< HEAD:assets/HUD/buttons/buttonHover.png.import
 source_file="res://assets/HUD/buttons/buttonHover.png"
 dest_files=["res://.godot/imported/buttonHover.png-69ab0118e417818a5a97d50fb7088fad.ctex"]
+========
+source_file="res://AetherDemo.apple-touch-icon.png"
+dest_files=["res://.godot/imported/AetherDemo.apple-touch-icon.png-2572a78c602fcd9b8ce022aa673891f3.ctex"]
+>>>>>>>> 170b1d33962c466fd4ce27cf65394520a1db95a0:AetherDemo.apple-touch-icon.png.import
 
 [params]
 
