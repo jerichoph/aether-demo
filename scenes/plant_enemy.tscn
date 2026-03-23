@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://bx6wlexwuflwx"]
+
+[ext_resource type="Texture2D" uid="uid://dwu82xj7ka8rs" path="res://assets/tileset/TILED_files/Predator_plant.png" id="1_5ajnf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6e82"]
+atlas = ExtResource("1_5ajnf")
+region = Rect2(177, 0, 177, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dclbj"]
+atlas = ExtResource("1_5ajnf")
+region = Rect2(177, 160, 177, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8deld"]
+atlas = ExtResource("1_5ajnf")
+region = Rect2(177, 160, 177, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brnop"]
+atlas = ExtResource("1_5ajnf")
+region = Rect2(177, 0, 177, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1l7hc"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_t6e82")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_dclbj")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_8deld")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_brnop")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 20.0
+}]
+
+[node name="PlantEnemy" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -66)
+sprite_frames = SubResource("SpriteFrames_1l7hc")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.25457692

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b4tyv2hk455mr"
+path="res://.godot/imported/Medieval Traveler's Journey.mp3-25807f27a2e9bd52be63a7282a717b7e.mp3str"
+
+[deps]
+
+source_file="res://assets/musics/Medieval Traveler's Journey.mp3"
+dest_files=["res://.godot/imported/Medieval Traveler's Journey.mp3-25807f27a2e9bd52be63a7282a717b7e.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

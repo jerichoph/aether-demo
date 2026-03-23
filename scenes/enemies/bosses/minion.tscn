@@ -1,0 +1,160 @@
+[gd_scene load_steps=21 format=3 uid="uid://bms6mkrj0e8yy"]
+
+[ext_resource type="Script" uid="uid://voce4unseqmk" path="res://scripts/minion.gd" id="1_iak7v"]
+[ext_resource type="PackedScene" uid="uid://c6uygo76k8yh2" path="res://scenes/enemyhpbar.tscn" id="2_pu2tm"]
+[ext_resource type="Texture2D" uid="uid://4twqo0p0axkr" path="res://assets/characters/enemies/Bosses/Undead executioner puppet/png/summonAppear.png" id="2_xyrth"]
+[ext_resource type="Texture2D" uid="uid://cti0gn2tr67sq" path="res://assets/characters/enemies/Bosses/Undead executioner puppet/png/summonIdle.png" id="3_pu2tm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rs5w0"]
+atlas = ExtResource("2_xyrth")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbvsp"]
+atlas = ExtResource("2_xyrth")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pl7f4"]
+atlas = ExtResource("2_xyrth")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejws8"]
+atlas = ExtResource("2_xyrth")
+region = Rect2(0, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgj3h"]
+atlas = ExtResource("2_xyrth")
+region = Rect2(50, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_entgo"]
+atlas = ExtResource("2_xyrth")
+region = Rect2(100, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2igq2"]
+atlas = ExtResource("3_pu2tm")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qm3qt"]
+atlas = ExtResource("3_pu2tm")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kocjd"]
+atlas = ExtResource("3_pu2tm")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74jvt"]
+atlas = ExtResource("3_pu2tm")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jra54"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rs5w0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbvsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pl7f4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejws8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgj3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_entgo")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2igq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qm3qt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kocjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74jvt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wpjep"]
+radius = 16.03122
+
+[sub_resource type="Gradient" id="Gradient_eyfj4"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iak7v"]
+gradient = SubResource("Gradient_eyfj4")
+fill = 1
+fill_from = Vector2(0.49685535, 0.47484276)
+fill_to = Vector2(0.8993711, 0.12264151)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xyrth"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pu2tm"]
+radius = 15.0
+
+[node name="minion" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_iak7v")
+
+[node name="EnemyHPBar" parent="." instance=ExtResource("2_pu2tm")]
+offset_left = -22.0
+offset_top = -43.0
+offset_right = 23.0
+offset_bottom = -37.0
+max_value = 50.0
+value = 50.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -22)
+scale = Vector2(1.575, 1.575)
+sprite_frames = SubResource("SpriteFrames_jra54")
+autoplay = "default"
+frame = 5
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -17)
+shape = SubResource("CircleShape2D_wpjep")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1, -30.000002)
+scale = Vector2(1.0625, 0.953125)
+color = Color(1, 0, 0, 1)
+texture = SubResource("GradientTexture2D_iak7v")
+
+[node name="DamageNumber" type="Node2D" parent="."]
+position = Vector2(0, -38)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="MinionHitBox" type="Area2D" parent="."]
+position = Vector2(0, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MinionHitBox"]
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_xyrth")
+
+[node name="BatDealDamageArea" type="Area2D" parent="."]
+position = Vector2(0, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatDealDamageArea"]
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_pu2tm")
+
+[connection signal="area_entered" from="MinionHitBox" to="." method="_on_minion_hit_box_area_entered"]

@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://ue5en4bbdeqi"]
+
+[ext_resource type="Texture2D" uid="uid://ihybl5ap0dk6" path="res://assets/tileset/TILED_files/Flying_stone.png" id="1_gvxl4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6b43"]
+atlas = ExtResource("1_gvxl4")
+region = Rect2(0, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5etf"]
+atlas = ExtResource("1_gvxl4")
+region = Rect2(160, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8l74s"]
+atlas = ExtResource("1_gvxl4")
+region = Rect2(320, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q06cy"]
+atlas = ExtResource("1_gvxl4")
+region = Rect2(480, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jw7ck"]
+atlas = ExtResource("1_gvxl4")
+region = Rect2(640, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlrdy"]
+atlas = ExtResource("1_gvxl4")
+region = Rect2(800, 0, 160, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cuh40"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6b43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5etf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l74s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q06cy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jw7ck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlrdy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 13.0
+}]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -35)
+sprite_frames = SubResource("SpriteFrames_cuh40")
+autoplay = "default"
+frame_progress = 0.08501446
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
