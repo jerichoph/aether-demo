@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://bh6sd5go4q3j5"]
+[gd_scene load_steps=10 format=3 uid="uid://bh6sd5go4q3j5"]
 
 [ext_resource type="Script" uid="uid://gx0r37kt6sny" path="res://scenes/main_menu.gd" id="1_rif6e"]
 [ext_resource type="Texture2D" uid="uid://d0007mw7vmo07" path="res://assets/bg/nature_2/1.png" id="2_ckc44"]
 [ext_resource type="Script" uid="uid://cua5ertgua8n3" path="res://scripts/CloudLayer.gd" id="3_ckc44"]
 [ext_resource type="FontFile" uid="uid://bn5vjuq7ksl3u" path="res://assets/fonts/BoldPixels.otf" id="3_r77uv"]
 [ext_resource type="Texture2D" uid="uid://b0r2jn67umucp" path="res://assets/bg/nature_5/2.png" id="4_o2xx4"]
-[ext_resource type="Texture2D" uid="uid://01ycqay1bnaa" path="res://assets/HUD/buttons/level1.png" id="4_rif6e"]
 [ext_resource type="Texture2D" uid="uid://66dccex6b6gr" path="res://assets/bg/nature_5/3.png" id="5_htctk"]
 [ext_resource type="Texture2D" uid="uid://gykrls287i48" path="res://assets/bg/nature_5/4.png" id="6_s6tf7"]
+[ext_resource type="Texture2D" uid="uid://cbuh7ti5e0okx" path="res://assets/HUD/UI assets Demo (1x).png" id="8_ckc44"]
+[ext_resource type="FontFile" uid="uid://bah7jmco43x6e" path="res://assets/fonts/upheavtt.ttf" id="9_o2xx4"]
 
 [node name="level_select" type="Control"]
 layout_mode = 3
@@ -63,19 +64,136 @@ offset_right = 108.0
 offset_bottom = 697.0
 theme_override_fonts/font = ExtResource("3_r77uv")
 theme_override_font_sizes/font_size = 50
-text = "v0.1"
+text = "v1.0(beta)"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(317, 326)
-scale = Vector2(0.356, 0.413)
-texture = ExtResource("4_rif6e")
+position = Vector2(301.875, 348.5363)
+scale = Vector2(6.062501, 6.227712)
+texture = ExtResource("8_ckc44")
+region_enabled = true
+region_rect = Rect2(54, 6, 36, 36)
+
+[node name="gameVer2" type="Label" parent="Sprite2D"]
+offset_left = -9.711339
+offset_top = -20.296013
+offset_right = 12.662856
+offset_bottom = 15.703987
+scale = Vector2(1.01, 1.01)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("9_o2xx4")
+theme_override_font_sizes/font_size = 40
+text = "1"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(644, 350)
+scale = Vector2(6.062501, 6.227712)
+texture = ExtResource("8_ckc44")
+region_enabled = true
+region_rect = Rect2(54, 6, 36, 36)
+
+[node name="gameVer2" type="Label" parent="Sprite2D2"]
+offset_left = -10.536077
+offset_top = -20.456589
+offset_right = 13.463923
+offset_bottom = 15.543411
+scale = Vector2(1.01, 1.01)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("9_o2xx4")
+theme_override_font_sizes/font_size = 40
+text = "2"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(986.00006, 350)
+scale = Vector2(6.062501, 6.227712)
+texture = ExtResource("8_ckc44")
+region_enabled = true
+region_rect = Rect2(54, 6, 36, 36)
+
+[node name="gameVer2" type="Label" parent="Sprite2D4"]
+offset_left = -10.536077
+offset_top = -20.456589
+offset_right = 13.463923
+offset_bottom = 15.543411
+scale = Vector2(1.01, 1.01)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("9_o2xx4")
+theme_override_font_sizes/font_size = 40
+text = "3"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="lvl1" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 197.0
-offset_top = 152.0
-offset_right = 422.0
-offset_bottom = 499.0
+offset_left = 220.0
+offset_top = 257.0
+offset_right = 390.0
+offset_bottom = 439.0
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(73.00007, 64.00006)
+scale = Vector2(6.062501, 6.227712)
+texture = ExtResource("8_ckc44")
+region_enabled = true
+region_rect = Rect2(150, 144, 20, 17)
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(70.00007, 61.00007)
+scale = Vector2(6.062501, 6.227712)
+texture = ExtResource("8_ckc44")
+region_enabled = true
+region_rect = Rect2(4, 101, 7, 7)
+
+[node name="back" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 174.0
+offset_bottom = 183.0
+
+[node name="lvl2" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 559.0
+offset_top = 262.0
+offset_right = 729.0
+offset_bottom = 444.0
+
+[node name="lvl3" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 899.0
+offset_top = 258.0
+offset_right = 1069.0
+offset_bottom = 440.0
+
+[node name="selectLevelBG" type="Sprite2D" parent="."]
+modulate = Color(0.9411765, 0.70980394, 0.25490198, 1)
+position = Vector2(642, 114.00001)
+scale = Vector2(12.772729, 10.892856)
+texture = ExtResource("8_ckc44")
+region_enabled = true
+region_rect = Rect2(50, 50, 44, 14)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 59.0
+offset_right = 845.0
+offset_bottom = 119.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6901961)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("3_r77uv")
+theme_override_font_sizes/font_size = 60
+text = "SELECT LEVEL"
 
 [connection signal="pressed" from="lvl1" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="lvl1" to="." method="_on_lvl_1_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="lvl2" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="lvl2" to="." method="_on_lvl_2_pressed"]
+[connection signal="pressed" from="lvl3" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="lvl3" to="." method="_on_lvl_3_pressed"]

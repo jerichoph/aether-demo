@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://g88weas0lkl0"]
 
 [ext_resource type="Script" uid="uid://yjk0rwgkwvp6" path="res://scripts/ui.gd" id="1_yev5y"]
-[ext_resource type="Texture2D" uid="uid://c24nsgb1lbash" path="res://assets/bg/nature_3/origbig.png" id="2_gdt2y"]
+[ext_resource type="Texture2D" uid="uid://qntr5ugnu0oh" path="res://assets/bg/bg-game-over.jpg" id="2_gdt2y"]
 [ext_resource type="Texture2D" uid="uid://cbuh7ti5e0okx" path="res://assets/HUD/UI assets Demo (1x).png" id="2_yev5y"]
 [ext_resource type="FontFile" uid="uid://dt5u46lba2xu7" path="res://assets/fonts/BoldPixels.ttf" id="3_gdt2y"]
 
@@ -11,56 +11,82 @@ script = ExtResource("1_yev5y")
 [node name="Game_Over" type="Node2D" parent="." groups=["HUD"]]
 visible = false
 
-[node name="BG" type="Sprite2D" parent="Game_Over"]
-position = Vector2(634, 310)
-scale = Vector2(0.6015625, 0.628858)
+[node name="bg" type="Sprite2D" parent="Game_Over"]
+self_modulate = Color(1, 0.34901962, 0.23921569, 1)
+position = Vector2(642, 334)
 texture = ExtResource("2_gdt2y")
 
 [node name="RestartButton" type="Button" parent="Game_Over"]
 self_modulate = Color(0.8156863, 0.8156863, 0.8156863, 0)
 z_index = 4096
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 328.0
-offset_top = 288.0
-offset_right = 816.0
-offset_bottom = 420.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 524.0
+offset_top = 443.0
+offset_right = 767.0
+offset_bottom = 514.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(122, 68)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="Game_Over"]
-position = Vector2(576, 352)
-scale = Vector2(10.683264, 9.581417)
+[node name="buttonSprite" type="Sprite2D" parent="Game_Over"]
+position = Vector2(645, 481.99997)
+scale = Vector2(5.399983, 5.777708)
 texture = ExtResource("2_yev5y")
 region_enabled = true
-region_rect = Rect2(47.445, 143.17, 49.555, 18)
+region_rect = Rect2(0, 144, 48, 17.169998)
+
+[node name="buttonSprite2" type="Sprite2D" parent="Game_Over"]
+modulate = Color(0.7405243, 0.20965561, 0.29294223, 1)
+position = Vector2(649, 156)
+scale = Vector2(14.624999, 14.367577)
+texture = ExtResource("2_yev5y")
+region_enabled = true
+region_rect = Rect2(96, 48, 48, 18)
 
 [node name="Label" type="Label" parent="Game_Over"]
-offset_left = 392.0
-offset_top = 302.00003
-offset_right = 456.7555
-offset_bottom = 318.00003
-scale = Vector2(5.93, 5.93)
+offset_left = 547.0
+offset_top = 454.0
+offset_right = 610.0
+offset_bottom = 470.0
+scale = Vector2(3.18, 3.18)
 theme_override_fonts/font = ExtResource("3_gdt2y")
 theme_override_font_sizes/font_size = 16
 text = "RESTART"
 
+[node name="Label2" type="Label" parent="Game_Over"]
+offset_left = 411.0
+offset_top = 100.0
+offset_right = 491.0
+offset_bottom = 116.0
+scale = Vector2(5.93, 5.93)
+theme_override_fonts/font = ExtResource("3_gdt2y")
+theme_override_font_sizes/font_size = 16
+text = "GAME OVER"
+
 [node name="EndScore" type="Node2D" parent="Game_Over"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Game_Over/EndScore"]
-position = Vector2(588.00006, 246)
-scale = Vector2(5.098, 1.171)
+position = Vector2(648, 343.00003)
+scale = Vector2(8.145833, 6.9999986)
+texture = ExtResource("2_yev5y")
+region_enabled = true
+region_rect = Rect2(49, 48, 47, 18)
 
 [node name="Points" type="Label" parent="Game_Over/EndScore"]
-offset_left = 464.0
-offset_top = 184.0
-offset_right = 567.4169
-offset_bottom = 231.0
-scale = Vector2(2.195, 2.195)
+offset_left = 561.0
+offset_top = 233.0
+offset_right = 603.323
+offset_bottom = 280.0
+scale = Vector2(4.03, 4.03)
+theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("3_gdt2y")
-theme_override_font_sizes/font_size = 46
+theme_override_font_sizes/font_size = 16
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1

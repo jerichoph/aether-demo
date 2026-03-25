@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=3 uid="uid://bcubw52vfss26"]
+
+[ext_resource type="Script" uid="uid://dnmoo1dp15hid" path="res://checkpoint.gd" id="1_yyywg"]
+[ext_resource type="Texture2D" uid="uid://ihybl5ap0dk6" path="res://assets/tileset/TILED_files/Flying_stone.png" id="2_ywqth"]
+[ext_resource type="FontFile" uid="uid://bn5vjuq7ksl3u" path="res://assets/fonts/BoldPixels.otf" id="3_vsimk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ywqth"]
+radius = 28.5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsimk"]
+atlas = ExtResource("2_ywqth")
+region = Rect2(0, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqsag"]
+atlas = ExtResource("2_ywqth")
+region = Rect2(160, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c45tw"]
+atlas = ExtResource("2_ywqth")
+region = Rect2(320, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55jpe"]
+atlas = ExtResource("2_ywqth")
+region = Rect2(480, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc08m"]
+atlas = ExtResource("2_ywqth")
+region = Rect2(640, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tl56q"]
+atlas = ExtResource("2_ywqth")
+region = Rect2(800, 0, 160, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ok2sx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsimk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqsag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c45tw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55jpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc08m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tl56q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Checkpoint" type="Area2D"]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_yyywg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -42)
+shape = SubResource("CircleShape2D_ywqth")
+
+[node name="RespawnPoint" type="Marker2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1000
+position = Vector2(7, -34)
+sprite_frames = SubResource("SpriteFrames_ok2sx")
+autoplay = "default"
+
+[node name="Label" type="Label" parent="."]
+offset_left = -29.000006
+offset_top = -81.0
+offset_right = 60.999992
+offset_bottom = -65.0
+scale = Vector2(0.66, 0.66)
+theme_override_colors/font_color = Color(0.6945106, 0.9364456, 1, 1)
+theme_override_fonts/font = ExtResource("3_vsimk")
+text = "CHECKPOINT"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

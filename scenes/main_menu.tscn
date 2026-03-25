@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://66dccex6b6gr" path="res://assets/bg/nature_5/3.png" id="5_rcqid"]
 [ext_resource type="Texture2D" uid="uid://gykrls287i48" path="res://assets/bg/nature_5/4.png" id="6_1ajci"]
 [ext_resource type="Texture2D" uid="uid://dhep2v6ehgqbc" path="res://assets/HUD/buttons/buttonNormal.png" id="9_flqon"]
-[ext_resource type="Texture2D" uid="uid://b4lbf7el4mkfg" path="res://assets/HUD/buttons/buttonHover.png" id="10_rcqid"]
+[ext_resource type="Texture2D" uid="uid://dttyobbv10d3d" path="res://assets/HUD/buttons/buttonHover.png" id="10_rcqid"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -72,7 +72,7 @@ offset_right = 105.0
 offset_bottom = 702.0
 theme_override_fonts/font = ExtResource("2_wu84c")
 theme_override_font_sizes/font_size = 50
-text = "v0.1"
+text = "v1.0(beta)"
 
 [node name="PLAY" type="TextureButton" parent="."]
 layout_mode = 0
@@ -95,7 +95,7 @@ offset_bottom = 80.586914
 scale = Vector2(0.13, 0.13)
 theme_override_fonts/font = ExtResource("2_wu84c")
 theme_override_font_sizes/font_size = 75
-text = "Play"
+text = "PLAY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -120,7 +120,7 @@ offset_bottom = 80.586914
 scale = Vector2(0.13, 0.13)
 theme_override_fonts/font = ExtResource("2_wu84c")
 theme_override_font_sizes/font_size = 75
-text = "About"
+text = "ABOUT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -145,7 +145,7 @@ offset_bottom = 80.586914
 scale = Vector2(0.13, 0.13)
 theme_override_fonts/font = ExtResource("2_wu84c")
 theme_override_font_sizes/font_size = 75
-text = "Quit"
+text = "QUIT"
 horizontal_alignment = 1
 vertical_alignment = 1
 

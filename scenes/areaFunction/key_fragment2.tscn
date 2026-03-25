@@ -1,0 +1,138 @@
+[gd_scene load_steps=20 format=3 uid="uid://34jj65kxasbt"]
+
+[ext_resource type="Script" uid="uid://ch2ib48qrqwu4" path="res://scripts/key_fragment.gd" id="1_s0pwx"]
+[ext_resource type="Texture2D" uid="uid://dejd5m1sav45x" path="res://assets/tileset/TILED_files/key.png" id="2_s0pwx"]
+[ext_resource type="AudioStream" uid="uid://c21puyj2a1x41" path="res://audio/music/gemPickup.wav" id="3_8qycp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnshs"]
+atlas = ExtResource("2_s0pwx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qycp"]
+atlas = ExtResource("2_s0pwx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b47i"]
+atlas = ExtResource("2_s0pwx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw02s"]
+atlas = ExtResource("2_s0pwx")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfra5"]
+atlas = ExtResource("2_s0pwx")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsyco"]
+atlas = ExtResource("2_s0pwx")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2w3h"]
+atlas = ExtResource("2_s0pwx")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuqes"]
+atlas = ExtResource("2_s0pwx")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4krjj"]
+atlas = ExtResource("2_s0pwx")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31thm"]
+atlas = ExtResource("2_s0pwx")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lree7"]
+atlas = ExtResource("2_s0pwx")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tq3w0"]
+atlas = ExtResource("2_s0pwx")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2kqe3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnshs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qycp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6b47i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uw02s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfra5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsyco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2w3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuqes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4krjj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31thm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lree7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tq3w0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ytmig"]
+
+[sub_resource type="Gradient" id="Gradient_j42rm"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ytmig"]
+gradient = SubResource("Gradient_j42rm")
+fill = 1
+fill_from = Vector2(0.4779874, 0.46226415)
+fill_to = Vector2(0.8930818, 0.17924528)
+
+[node name="KeyFragment2" type="Area2D" groups=["Player"]]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_s0pwx")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -200
+position = Vector2(0.99999905, -10.000003)
+scale = Vector2(1.26, 1.26)
+sprite_frames = SubResource("SpriteFrames_2kqe3")
+autoplay = "default"
+frame_progress = 0.94955045
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -8)
+shape = SubResource("CircleShape2D_ytmig")
+
+[node name="GemPickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8qycp")
+bus = &"Sound Effects"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-4.7683716e-07, -12)
+scale = Vector2(4.3437505, 2.65625)
+color = Color(0.8980392, 0.8509804, 0.84705883, 1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_ytmig")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

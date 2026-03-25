@@ -103,4 +103,17 @@ position = Vector2(973, 49)
 scale = Vector2(3.03, 3.03)
 texture = ExtResource("7_37eo5")
 
+[node name="LevelLabel" type="Label" parent="."]
+offset_left = 585.0
+offset_top = 17.0
+offset_right = 708.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.90588236)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_rhpeq")
+theme_override_font_sizes/font_size = 35
+text = "LEVEL: "
+
 [connection signal="timeout" from="Sprite_HP/HealthBar/Timer" to="Sprite_HP/HealthBar" method="_on_timer_timeout"]

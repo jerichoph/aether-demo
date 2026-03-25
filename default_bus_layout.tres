@@ -1,4 +1,7 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://c65mb43gimtit"]
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://c65mb43gimtit"]
+
+[sub_resource type="AudioEffectNotchFilter" id="AudioEffectNotchFilter_j3pel"]
+resource_name = "NotchFilter"
 
 [resource]
 bus/0/volume_db = -0.046060562
@@ -6,8 +9,10 @@ bus/1/name = &"Music"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
-bus/1/volume_db = -33.37691
+bus/1/volume_db = -23.19587
 bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectNotchFilter_j3pel")
+bus/1/effect/0/enabled = false
 bus/2/name = &"Sound Effects"
 bus/2/solo = false
 bus/2/mute = false

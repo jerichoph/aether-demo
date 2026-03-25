@@ -7,6 +7,7 @@ var game_points = Global.current_score
 
 @onready var game_over_screen = $Game_Over
 
+
 func _ready():
 	pass
 	
@@ -15,7 +16,8 @@ func update_points(points: int):
 	
 func on_game_over():
 	game_over_screen.visible = true
-	$Game_Over/EndScore/Points.text = "%d" % game_points
+	
+	$Game_Over/EndScore/Points.text = str(game_points)
 	
 	
 func _on_restart_button_pressed() -> void:

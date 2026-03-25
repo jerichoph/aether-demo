@@ -22,7 +22,7 @@ var damage_to_deal = 10
 var points_for_kill = 100
 
 func _ready():
-	is_bat_chase = true
+	is_bat_chase = false
 	enemy_hp_bar.init_health(health)
 	
 

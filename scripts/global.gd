@@ -29,3 +29,5 @@ var key_fragments = 0:
 				UI.update_key_count(key_fragments)
 var keys_needed = 3
 var UI
+
+var current_level: int = 1

@@ -4,6 +4,8 @@ class_name HUD
 @onready var damage_bar: ProgressBar = $Sprite_HP/HealthBar/DamageBar
 @onready var health_label: Label = $Sprite_HP/HealthBar/HealthLabel
 @onready var key_label = $KeyCounter
+@onready var level_label: Label = $LevelLabel
+
 var game_points = Global.current_score
 var default_text = "SCORE: "
 
@@ -34,6 +36,9 @@ func _process(_delta):
 func _ready():
 	Global.UI = self
 	update_key_count(Global.key_fragments)
+
+func update_level_display():
+	level_label.text = "LEVEL: " + str(Global.current_level)
 
 func update_key_count(count):
 	key_label.text = "Shards: " + str(count) + " / " + str(Global.keys_needed)

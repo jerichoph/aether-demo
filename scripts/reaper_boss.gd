@@ -16,11 +16,12 @@ var health_max = 150
 var dead = false
 var taking_damage = false
 var player: CharacterBody2D
-var damage_to_deal = 15
+var damage_to_deal = 50
 
 var direction : Vector2
 
 func _ready():
+
 	Global.reaperDamageAmount = damage_to_deal
 	if health_bar:
 		health_bar.max_value = health_max
@@ -95,30 +96,38 @@ func take_damage(damage):
 		die()
 
 func die():
+	if dead: return # Safety check so it only runs once
 	dead = true 
 	
+	MusicManager.stop_music()
+	
+	# Spawn Key
 	if key_fragment:
 		var new_key = key_fragment.instantiate()
 		new_key.global_position = global_position
-		get_parent().add_child(new_key)
-		print("Key spawned at: ", new_key.global_position)
-	else:
-		print("Error: No Key Scene assigned to the Boss Inspector!")
+		# Use call_deferred when adding children during physics hits too!
+		get_parent().call_deferred("add_child", new_key)
 	
 	if has_node("AnimationPlayer"):
 		$AnimationPlayer.stop()
 
-	animated_sprite.play("death")
-	print("Playing death animation...") # Debug check
-	
-	if health_bar:
-		health_bar.hide()
-	if damage_bar:
-		damage_bar.hide()
-		
-	set_collision_layer_value(2, false) 
+	# Fix the Error: Use deferred to disable collision
+	set_deferred("collision_layer", 0) 
+	set_deferred("collision_mask", 0)
 
+	if health_bar: health_bar.hide()
+	if damage_bar: damage_bar.hide()
+
+	animated_sprite.play("death")
+	print("Playing death animation...")
+
+	# Wait for animation to finish
 	await animated_sprite.animation_finished
+	
+	# Play Level Music
+	MusicManager.play_track(MusicManager.level_1_music)
+	
+	# Final cleanup delay
 	await get_tree().create_timer(2.0).timeout
 	queue_free()
 
@@ -139,3 +148,9 @@ func _on_attack_area_area_entered(area: Area2D) -> void:
 			var player_node = area.get_parent()
 			if player_node.has_method("take_damage"):
 				player_node.take_damage(damage_to_deal)
+				
+func start_boss_music():
+	MusicManager.play_track(MusicManager.boss_music)
+				
+
+	

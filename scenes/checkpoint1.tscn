@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://dn7475hefwlgm"]
+
+[ext_resource type="Script" uid="uid://dnmoo1dp15hid" path="res://checkpoint.gd" id="1_uvt4t"]
+[ext_resource type="Texture2D" uid="uid://bou64rog7v7hs" path="res://assets/tileset/designs/TX Village Props.png" id="2_uvt4t"]
+[ext_resource type="FontFile" uid="uid://bn5vjuq7ksl3u" path="res://assets/fonts/BoldPixels.otf" id="3_mm7od"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ywqth"]
+radius = 28.5
+
+[sub_resource type="Gradient" id="Gradient_5vgdf"]
+colors = PackedColorArray(0, 1, 1, 0.4862745, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mm7od"]
+gradient = SubResource("Gradient_5vgdf")
+fill = 1
+fill_from = Vector2(0.5356125, 0.4814815)
+fill_to = Vector2(0.94586897, 0.10541311)
+
+[node name="Checkpoint1" type="Area2D"]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_uvt4t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -42)
+shape = SubResource("CircleShape2D_ywqth")
+
+[node name="RespawnPoint" type="Marker2D" parent="."]
+
+[node name="AnimatedSprite2D2" type="Sprite2D" parent="."]
+z_index = 1000
+position = Vector2(3, -39.000004)
+scale = Vector2(1.7741935, 1.9117646)
+texture = ExtResource("2_uvt4t")
+region_enabled = true
+region_rect = Rect2(202, 585, 11, 12)
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D2"]
+position = Vector2(-0.2818203, 0.7846136)
+scale = Vector2(2.1752841, 1.7572117)
+texture = SubResource("GradientTexture2D_mm7od")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+z_index = 100
+position = Vector2(7.6293945e-06, -33)
+scale = Vector2(1.7741936, 1.9117647)
+texture = ExtResource("2_uvt4t")
+region_enabled = true
+region_rect = Rect2(161, 574, 31, 34)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -29.000006
+offset_top = -81.0
+offset_right = 60.999992
+offset_bottom = -65.0
+scale = Vector2(0.66, 0.66)
+theme_override_colors/font_color = Color(0.6945106, 0.9364456, 1, 1)
+theme_override_fonts/font = ExtResource("3_mm7od")
+text = "CHECKPOINT"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

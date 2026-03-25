@@ -10,8 +10,14 @@ var player_entered: bool = false:
 		collision.set_deferred("disabled", value)
 		progress_bar.set_deferred("visible", value)
 		damage_bar.set_deferred("visible", value)
-
+		
 func _on_player_detection_body_entered(body: Node2D) -> void:
+	# Only trigger if it's the player and we haven't entered yet
+	if player_entered or body.name != "Player2": 
+		return
+
+	# Tell the BOSS to start the music
+	owner.start_boss_music() 
 	player_entered = true
 
 func transition():

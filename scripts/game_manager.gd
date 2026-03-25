@@ -5,6 +5,8 @@ var level_path = "res://scenes/levels/"
 
 func next_level():
 	current_area += 1
+	Global.current_level += 1
+	Global.UI.update_level_display()
 	var full_path = level_path + "level_" + str(current_area) + ".tscn"
 	get_tree().call_deferred("change_scene_to_file", full_path)
 	print("The player has move to level " + str(current_area))

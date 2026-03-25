@@ -7,6 +7,9 @@ func _ready():
 	current_state = get_child(0) as State
 	previous_state = current_state
 	current_state.enter()
+	
+	if MusicManager:
+		MusicManager.play_track(MusicManager.boss_music)
 
 func change_state(state):
 	current_state = find_child(state) as State
